@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey page</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+          <h1><i class="fa fa-fire"></i>Survey Questions</h1>
+          <hr>
+          <h3>About You</h3>
+          <div class="form-group">
+            <label for="name">Name(required)</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="photoLink">Link to Photo Image(required)</label>
+            <input type="text" class="form-control" id="photoLink">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3><strong>Questions</strong></h3>
+                </div>
+                <div class="card-body">
+                  <form method="POST" role="form">
+                    <br>
+                    <h3 class="font-weight-bold">Question 1</h3>
+                    <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+                    <select class="form-control bg-dark text-light w-50 question" id="q1">
+                        <option class="text-dark bg-light" value="0">Select</option>
+                        <option class="text-dark bg-light" value="1">1 (Strongly Disagree)</option>
+                        <option class="text-dark bg-light" value="2">2</option>
+                        <option class="text-dark bg-light" value="3">3</option>
+                        <option class="text-dark bg-light" value="4">4</option>
+                        <option class="text-dark bg-light" value="5">5 (Strongly Agree)</option>
+                    </select>
+
+                    <br>
+
+                    <br>
+
+                    <h3 class="font-weight-bold">Question 2</h3>
+                    <h6>Generally speaking, you rely more on your experience than your imagination.</h6>
+                    <select class="form-control bg-dark text-light w-50 question" id="q2">
+                        <option class="text-dark bg-light" value="0">Select</option>
+                        <option class="text-dark bg-light" value="1">1 (Strongly Disagree)</option>
+                        <option class="text-dark bg-light" value="2">2</option>
+                        <option class="text-dark bg-light" value="3">3</option>
+                        <option class="text-dark bg-light" value="4">4</option>
+                        <option class="text-dark bg-light" value="5">5 (Strongly Agree)</option>
+                    </select>
+            
+                    <br>
+
+                    <br>
+
+                    <h3 class="font-weight-bold">Question 3</h3>
+                    <h6>You find it easy to stay relaxed and focused even when there is some pressure.</h6>
+                    <select class="form-control bg-dark text-light w-50 question" id="q3">
+                        <option class="text-dark bg-light" value="0">Select</option>
+                        <option class="text-dark bg-light" value="1">1 (Strongly Disagree)</option>
+                        <option class="text-dark bg-light" value="2">2</option>
+                        <option class="text-dark bg-light" value="3">3</option>
+                        <option class="text-dark bg-light" value="4">4</option>
+                        <option class="text-dark bg-light" value="5">5 (Strongly Agree)</option>
+                    </select>
+            
+                    <br>
+
+                    <br>
+
+                    <h3 class="font-weight-bold">Question 4</h3>
+                    <h6>You rarely do something just out of sheer curiosity.</h6>
+                    <select class="form-control bg-dark text-light w-50 question" id="q4">
+                        <option class="text-dark bg-light" value="0">Select</option>
+                        <option class="text-dark bg-light" value="1">1 (Strongly Disagree)</option>
+                        <option class="text-dark bg-light" value="2">2</option>
+                        <option class="text-dark bg-light" value="3">3</option>
+                        <option class="text-dark bg-light" value="4">4</option>
+                        <option class="text-dark bg-light" value="5">5 (Strongly Agree)</option>
+                    </select>
+            
+                    <br>
+
+                    <br>
+
+                    <h3 class="font-weight-bold">Question 5</h3>
+                    <h6>It is often difficult for you to relate to other people’s feelings.</h6>
+                    <select class="form-control bg-dark text-light w-50 question" id="q5">
+                        <option class="text-dark bg-light" value="0">Select</option>
+                        <option class="text-dark bg-light" value="1">1 (Strongly Disagree)</option>
+                        <option class="text-dark bg-light" value="2">2</option>
+                        <option class="text-dark bg-light" value="3">3</option>
+                        <option class="text-dark bg-light" value="4">4</option>
+                        <option class="text-dark bg-light" value="5">5 (Strongly Agree)</option>
+                    </select>
+            
+                    <br>
+                  </form>
+                  <br>
+                  <div class="text-right">
+                    <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="container">
+          <p><a href="/api/friends">API Friend List</a> | <a href="/api/waitlist">GitHub Repo</a>
+        </div>
+    </footer>
+
+    <!--Jquery Section-->
+    <script type="text/javascript">
+
+        $("#add-btn").on("click", function(event) {
+          event.preventDefault();
+            var UncheckFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#photoLink").val().trim(),
+            scores: [
+                    $("#q1").val().trim(),
+                    $("#q2").val().trim(),
+                    $("#q3").val().trim(),
+                    $("#q4").val().trim(),
+                    $("#q5").val().trim()
+                ]
+            
+          };
+
+          //check that array if it includes undefined value, data will not be post if undefined exists
+          if(!UncheckFriend.name==""&&!UncheckFriend.photo==""&&!UncheckFriend.scores.includes(0)){
+                var newfriend=UncheckFriend;
+                console.log(newfriend);
+                //get data from data base to find the most compatible friend
+                $.get("/api/friends", function(data) {
+                console.log(data);
+                var totalDifferents=[];
+                //create array that have all score of difference from each person
+                for(var i=0;i<data.length;i++){
+                    var first=Math.abs(newfriend.scores[0]-data[i].scores[0]);
+                    var second=Math.abs(newfriend.scores[1]-data[i].scores[1]);
+                    var third=Math.abs(newfriend.scores[2]-data[i].scores[2]);
+                    var forth=Math.abs(newfriend.scores[3]-data[i].scores[3]);
+                    var fifth=Math.abs(newfriend.scores[4]-data[i].scores[4]);
+                    var totalDifferent=first+second+third+forth+fifth;
+                    totalDifferents.push(totalDifferent);
+                }
+                var bestFriendIndex = totalDifferents.indexOf(Math.min(...totalDifferents));
+                console.log("bestFriend"+data[bestFriendIndex].name);
+                console.log("totodifferents"+totalDifferents);
+
+                alert("You have recommended friend: "+data[bestFriendIndex].name);
+
+
+            });
+
+
+            // post the value to database of server
+            $.post("/api/friends", {friend:newfriend})
+                .then(function(data) {
+                console.log("add.html", data);
+                alert("Adding new friend");
+                });
+
+          }else{
+              alert("Please type availble message");
+          }
+
+
+
+        });
+
+
+      </script>
+
+</body>
+</html>
